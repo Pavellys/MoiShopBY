@@ -44,21 +44,21 @@ public class HeadMenuTest extends BaseTest{
     public void catalogTest(){
         headMenuModal.openMoiShopBy()
                 .checkingCatalog();
-        Assert.assertTrue(headMenuModal.catalogIsDisplayed());
+        Assert.assertTrue(headMenuModal.isCatalogDisplayed());
     }
 
     @Test
     public void brandsTest(){
         headMenuModal.openMoiShopBy()
                 .checkingBrands();
-        Assert.assertTrue(headMenuModal.brandsIsDisplayed());
+        Assert.assertTrue(headMenuModal.isBrandsDisplayed());
     }
 
     @Test
     public void searchTest(){
         headMenuModal.openMoiShopBy()
                 .checkingSearch();
-        Assert.assertTrue(headMenuModal.searchIsDisplayed());
+        Assert.assertTrue(headMenuModal.isSearchDisplayed());
     }
 
     @Test

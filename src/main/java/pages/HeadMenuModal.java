@@ -9,17 +9,19 @@ import org.openqa.selenium.support.FindBy;
 
 public class HeadMenuModal extends BasePage{
     @FindBy(id = "catalog")
-    WebElement catalog;
+    WebElement catalogButton;
     @FindBy(id = "brands")
-    WebElement brands;
+    WebElement brandsButton;
     @FindBy(className = "header-search-toggle")
-    WebElement search;
+    WebElement searchButton;
     @FindBy(className = "go-to-cart-link")
-    WebElement buttonCart;
-    private static final String MENU_SECTION = "//*[contains(text(),'%s')]";
-    private static final By SEARCH_IS_DISPLAYED = By.className("multi-input");
-    private static final By BRANDS_IS_DISPLAYED = By.id("ulBrands");
-    private static final By CATALOG_IS_DISPLAYED = By.id("ctgr");
+    WebElement cartButton;
+    private static final String MENU_SECTION_XPATH = "//*[contains(text(),'%s')]";
+    private static final By SEARCH_PANEL_CLASSNAME = By.className("multi-input");
+    private static final By BRANDS_LIST_ID = By.id("ulBrands");
+    private static final By CATALOG_LIST_ID = By.id("ctgr");
+    private static final By MY_ACCOUNT_XPATH = By.xpath("//*[@alt='User']");
+    private static final By BUTTON_ENTER_XPATH = By.xpath("//*[contains(text(),'Войти')]");
 
     public HeadMenuModal(WebDriver driver) {
         super(driver);
@@ -31,34 +33,35 @@ public class HeadMenuModal extends BasePage{
     }
 
     public HeadMenuModal clickToElementMenu(String nameSection){
-        driver.findElement(By.xpath(String.format(MENU_SECTION, nameSection))).click();
+        driver.findElement(By.xpath(String.format(MENU_SECTION_XPATH, nameSection))).click();
         return this;
     }
 
     public HeadMenuModal checkingCatalog(){
-        catalog.click();
+        catalogButton.click();
         return this;
     }
 
     public HeadMenuModal checkingBrands(){
-        brands.click();
+        brandsButton.click();
         return this;
     }
 
     public HeadMenuModal checkingSearch(){
-        search.click();
+        searchButton.click();
         return this;
     }
 
     public HeadMenuModal checkingMyAccount(){
         actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(MY_ACCOUNT)).moveToElement(driver.findElement(BUTTON_ENTER)).click();
+        actions.moveToElement(driver.findElement(MY_ACCOUNT_XPATH))
+                .moveToElement(driver.findElement(BUTTON_ENTER_XPATH)).click();
         actions.build().perform();
         return this;
     }
 
     public HeadMenuModal checkingButtonCart(){
-        buttonCart.click();
+        cartButton.click();
         return this;
     }
 
@@ -66,15 +69,15 @@ public class HeadMenuModal extends BasePage{
         return driver.getCurrentUrl();
     }
 
-    public boolean catalogIsDisplayed(){
-        return driver.findElement(CATALOG_IS_DISPLAYED).isDisplayed();
+    public boolean isCatalogDisplayed(){
+        return driver.findElement(CATALOG_LIST_ID).isDisplayed();
     }
 
-    public boolean brandsIsDisplayed(){
-        return driver.findElement(BRANDS_IS_DISPLAYED).isDisplayed();
+    public boolean isBrandsDisplayed(){
+        return driver.findElement(BRANDS_LIST_ID).isDisplayed();
     }
 
-    public boolean searchIsDisplayed(){
-        return driver.findElement(SEARCH_IS_DISPLAYED).isDisplayed();
+    public boolean isSearchDisplayed(){
+        return driver.findElement(SEARCH_PANEL_CLASSNAME).isDisplayed();
     }
 }

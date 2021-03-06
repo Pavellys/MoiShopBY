@@ -14,4 +14,5 @@ public interface TestConstants {
     String PAYMENT_AND_DELIVERY = "Оплата и доставка";
     String FEEDBACKS = "Отзывы";
     String CONTACTS = "Контакты";
+    String PROMOTION_PRODUCT = "Гель для душа \"Jeju\" Ziaja, 300 мл";
 }
