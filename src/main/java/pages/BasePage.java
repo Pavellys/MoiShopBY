@@ -1,14 +1,12 @@
 package pages;
 
 import constants.Constants;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.JavaScriptUtils;
 
-abstract class BasePage extends JavaScriptUtils {
+abstract class BasePage implements Constants  {
     WebDriver driver;
     Actions actions;
     WebDriverWait wait;

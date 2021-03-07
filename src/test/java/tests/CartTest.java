@@ -1,10 +1,7 @@
 package tests;
 
-import objects.AddressUser;
-import objects.UserData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 
 public class CartTest extends BaseTest {
 
@@ -28,7 +25,7 @@ public class CartTest extends BaseTest {
                 .isPopUpDisplayed()
                 .openPage(CART_URL)
                 .clickToCheckoutButton()
-                .inputUserData(userData)
+                .inputUserData(getUserData())
                 .scrollToElement();
         Assert.assertTrue(cartPage.isCheckoutButtonDisplayed());
     }
@@ -43,9 +40,9 @@ public class CartTest extends BaseTest {
                 .isPopUpDisplayed()
                 .openPage(CART_URL)
                 .clickToCheckoutButton()
-                .inputUserData(userData)
+                .inputUserData(getUserData())
                 .clickCheckboxDeliveryOnRB()
-                .inputAddressUserData(addressUser);
+                .inputAddressUserData(getAddressUser());
         Assert.assertTrue(cartPage.isCheckoutButtonDisplayed());
     }
 }

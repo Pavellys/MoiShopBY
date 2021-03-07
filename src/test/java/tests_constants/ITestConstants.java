@@ -1,6 +1,6 @@
 package tests_constants;
 
-public interface TestConstants {
+public interface ITestConstants {
     String BASE_URL = "https://moishop.by/";
     String ABOUT_COMPANY_URL = BASE_URL + "about-us.html";
     String PROMOTIONS_URL = BASE_URL + "akcii.html";

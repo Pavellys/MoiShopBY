@@ -4,20 +4,20 @@ import elements.Input;
 import objects.AddressUser;
 import objects.UserData;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.JavaScriptUtils;
 
 public class CartPage extends BasePage{
     @FindBy(id = "catalog")
     WebElement catalogButton;
     @FindBy(id = "btnShowCheckoutForm")
     WebElement checkoutButton;
-    @FindBy(xpath = "//*[contains(@Class,'add-to-cart')]")
+    @FindBy(xpath = "//*[contains(@class,'add-to-cart')]")
     WebElement cartButton;
-    @FindBy(xpath = "//*[contains(@Class,'ajs-message')]")
+    @FindBy(xpath = "//*[contains(@class,'ajs-message')]")
     WebElement popUp;
     @FindBy(id = "checkout")
     WebElement checkoutButtonEndOrder;
@@ -77,7 +77,7 @@ public class CartPage extends BasePage{
     }
 
     public CartPage scrollToElement(){
-        executeJavaScript("arguments[0].scrollIntoView(true);", checkoutButtonEndOrder, driver);
+        JavaScriptUtils.executeJavaScript("arguments[0].scrollIntoView(true);", checkoutButtonEndOrder, driver);
         return this;
     }
 
