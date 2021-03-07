@@ -8,12 +8,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.CartPage;
 import pages.HeadMenuModal;
+import tests_constants.ITestData;
 import tests_constants.TestConstants;
 
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
-public class BaseTest implements TestConstants {
+public class BaseTest  implements TestConstants, ITestData {
 
     WebDriver driver;
     HeadMenuModal headMenuModal;

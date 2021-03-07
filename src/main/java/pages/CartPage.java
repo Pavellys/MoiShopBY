@@ -15,9 +15,9 @@ public class CartPage extends BasePage{
     WebElement catalogButton;
     @FindBy(id = "btnShowCheckoutForm")
     WebElement checkoutButton;
-    @FindBy(xpath = "//*[@class=\"btn btn-moi add-to-cart\"]")
+    @FindBy(xpath = "//*[contains(@Class,'add-to-cart')]")
     WebElement cartButton;
-    @FindBy(xpath = "//*[@class='ajs-message ajs-addtocart ajs-visible']")
+    @FindBy(xpath = "//*[contains(@Class,'ajs-message')]")
     WebElement popUp;
     @FindBy(id = "checkout")
     WebElement checkoutButtonEndOrder;
@@ -35,7 +35,7 @@ public class CartPage extends BasePage{
         return this;
     }
 
-    public CartPage clickToProduct(String productName){
+    public CartPage clickOnProduct(String productName){
         driver.findElement(By.xpath(String.format(FIND_ITEM_BY_TEXT_XPATH, productName))).click();
         return this;
     }
@@ -76,9 +76,8 @@ public class CartPage extends BasePage{
         return this;
     }
 
-    public CartPage scrollDown(){
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
-        jse.executeScript("arguments[0].scrollIntoView(true);",checkoutButtonEndOrder);
+    public CartPage scrollToElement(){
+        executeJavaScript("arguments[0].scrollIntoView(true);", checkoutButtonEndOrder, driver);
         return this;
     }
 

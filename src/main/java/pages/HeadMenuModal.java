@@ -27,8 +27,8 @@ public class HeadMenuModal extends BasePage{
         super(driver);
     }
 
-    public HeadMenuModal openMoiShopBy() {
-        driver.get(MAIN_URL);
+    public HeadMenuModal openMoiShopBy(String url) {
+        driver.get(url);
         return this;
     }
 
