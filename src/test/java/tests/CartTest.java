@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class CartTest extends BaseTest {
 
-    @Test
+    @Test(description = "Checking on added product ing the cart")
     public void addProductInCartTest() {
         cartPage.openPage(PROMOTIONS_URL)
                 .clickOnProduct(PROMOTION_PRODUCT)
@@ -15,7 +15,7 @@ public class CartTest extends BaseTest {
         Assert.assertTrue(cartPage.checkInCart(PROMOTION_PRODUCT));
     }
 
-    @Test
+    @Test(description = "Checking checkout 'Самовывоз'")
     public void checkoutPickUpServiceTest() {
         cartPage.openPage(BASE_URL)
                 .clickCatalog()
@@ -30,7 +30,7 @@ public class CartTest extends BaseTest {
         Assert.assertTrue(cartPage.isCheckoutButtonDisplayed());
     }
 
-    @Test
+    @Test(description = "Checking checkout 'Доставка по РБ'")
     public void checkoutDeliveryOnRBTest() {
         cartPage.openPage(BASE_URL)
                 .clickCatalog()
