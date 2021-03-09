@@ -4,6 +4,7 @@
     <test name="test 1">
         <classes>
             <class name="tests.HeadMenuTest"/>
+            <class name="tests.CartTest"/>
         </classes>
     </test> <!-- Test -->
 </suite>

@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-abstract class BasePage implements Constants {
+abstract class BasePage implements Constants  {
     WebDriver driver;
     Actions actions;
     WebDriverWait wait;
