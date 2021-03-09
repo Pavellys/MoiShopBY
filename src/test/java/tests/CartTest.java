@@ -9,23 +9,23 @@ public class CartTest extends BaseTest {
     public void addProductInCartTest() {
         cartPage.openPage(PROMOTIONS_URL)
                 .clickOnProduct(PROMOTION_PRODUCT)
-                .clickToButtonInCart()
-                .isPopUpDisplayed()
+                .clickOnButtonInCart()
+                .waitForCartPopUpDisplayed()
                 .openPage(CART_URL);
-        Assert.assertTrue(cartPage.checkInCart(PROMOTION_PRODUCT));
+        Assert.assertTrue(cartPage.isCheckInCart(PROMOTION_PRODUCT));
     }
 
     @Test(description = "Checking checkout 'Самовывоз'")
     public void checkoutPickUpServiceTest() {
         cartPage.openPage(BASE_URL)
-                .clickCatalog()
+                .clickCatalogButton()
                 .clickCatalogSection(GIFT_CERTIFICATE_SECTION_CATALOG)
                 .clickOnProduct(GIFT_CERTIFICATE_PRODUCT)
-                .clickToButtonInCart()
-                .isPopUpDisplayed()
+                .clickOnButtonInCart()
+                .waitForCartPopUpDisplayed()
                 .openPage(CART_URL)
-                .clickToCheckoutButton()
-                .inputUserData(getUserData())
+                .clickOnCheckoutButton()
+                .inputUserDataInNameAndPhoneField(getUserData())
                 .scrollToElement();
         Assert.assertTrue(cartPage.isCheckoutButtonDisplayed());
     }
@@ -33,16 +33,16 @@ public class CartTest extends BaseTest {
     @Test(description = "Checking checkout 'Доставка по РБ'")
     public void checkoutDeliveryOnRBTest() {
         cartPage.openPage(BASE_URL)
-                .clickCatalog()
+                .clickCatalogButton()
                 .clickCatalogSection(ANTISEPTICS_SECTION_CATALOG)
                 .clickOnProduct(ANTISEPTICS_PRODUCT)
-                .clickToButtonInCart()
-                .isPopUpDisplayed()
+                .clickOnButtonInCart()
+                .waitForCartPopUpDisplayed()
                 .openPage(CART_URL)
-                .clickToCheckoutButton()
-                .inputUserData(getUserData())
+                .clickOnCheckoutButton()
+                .inputUserDataInNameAndPhoneField(getUserData())
                 .clickCheckboxDeliveryOnRB()
-                .inputAddressUserData(getAddressUser());
+                .inputAddressUserDataInAddressField(getAddressUser());
         Assert.assertTrue(cartPage.isCheckoutButtonDisplayed());
     }
 }
