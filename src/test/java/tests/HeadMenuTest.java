@@ -57,7 +57,7 @@ public class HeadMenuTest extends BaseTest {
     @Test(description = "Checking redirect on menu section 'Поиск'")
     public void searchTest() {
         headMenuModal.openMoiShopBy()
-                .checkingSearch();
+                .clickingSearchButton();
         Assert.assertTrue(headMenuModal.isSearchDisplayed());
     }
 
