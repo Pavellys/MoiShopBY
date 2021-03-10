@@ -62,7 +62,7 @@ public class CartPage extends BasePage{
     }
 
     @Step("Checking that product added in cart")
-    public boolean checkInCart(String productInCart){
+    public boolean isProductInCart(String productInCart){
         log.info("Checking that " + productInCart + " added in cart");
         return driver.findElement(By.xpath(String.format(FIND_ITEM_IN_CART_XPATH, productInCart))).isDisplayed();
     }
@@ -105,7 +105,7 @@ public class CartPage extends BasePage{
     }
 
     @Step("Checking that button 'Заказать' in end order is displayed")
-    public boolean isCheckoutButtonDisplayed(){
+    public boolean isButtonDisplayed(){
         log.info("Checking that button 'Заказать' in end order is displayed");
         return checkoutButtonEndOrder.isDisplayed();
     }
@@ -118,18 +118,18 @@ public class CartPage extends BasePage{
     }
 
     @Step("Entering data in address form 'Доставка по РБ'")
-    public CartPage inputAddressUserData(AddressUser addressUser){
-        log.info("Entering data in address form 'Доставка по РБ'");
-        new Input(driver, "shipCity").write(addressUser.getShipCity());
-        new Input(driver, "shipZipсode").write(addressUser.getShipZipCode());
-        new Input(driver, "shipRegion").write(addressUser.getShipRegion());
-        new Input(driver, "shipDistrict").write(addressUser.getShipDistrict());
-        new Input(driver, "shipStreet").write(addressUser.getShipStreet());
-        new Input(driver, "shipHouse").write(addressUser.getShipHouse());
-        new Input(driver, "shipBuilding").write(addressUser.getShipBuilding());
-        new Input(driver, "shipAppt").write(addressUser.getShipAppt());
-        new Input(driver, "shipEntrance").write(addressUser.getShipEntrance());
-        new Input(driver, "shipFloor").write(addressUser.getShipFloor());
+    public CartPage inputAddressUserData(AddressUser userAddress){
+        log.info("Entering address: " + userAddress +" in address form 'Доставка по РБ'");
+        new Input(driver, "shipCity").write(userAddress.getShipCity());
+        new Input(driver, "shipZipсode").write(userAddress.getShipZipCode());
+        new Input(driver, "shipRegion").write(userAddress.getShipRegion());
+        new Input(driver, "shipDistrict").write(userAddress.getShipDistrict());
+        new Input(driver, "shipStreet").write(userAddress.getShipStreet());
+        new Input(driver, "shipHouse").write(userAddress.getShipHouse());
+        new Input(driver, "shipBuilding").write(userAddress.getShipBuilding());
+        new Input(driver, "shipAppt").write(userAddress.getShipAppt());
+        new Input(driver, "shipEntrance").write(userAddress.getShipEntrance());
+        new Input(driver, "shipFloor").write(userAddress.getShipFloor());
         return this;
     }
 }

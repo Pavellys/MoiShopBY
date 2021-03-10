@@ -2,6 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" name="MoiShop Test" parallel="methods">
     <test name="test 1">
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <include name="critical_pass"/>
+            </run>
+        </groups>
+
         <classes>
             <class name="tests.HeadMenuTest"/>
             <class name="tests.CartTest"/>
