@@ -24,7 +24,7 @@ public class CartPage extends BasePage{
     WebElement popUp;
     @FindBy(id = "checkout")
     WebElement checkoutButtonEndOrder;
-    @FindBy(xpath = "//*[@for='shipping_address']")
+    @FindBy(xpath = "//*[contains(text(), 'Доставка по РБ')]")
     WebElement checkboxDeliveryOnRB;
     private static final String FIND_ITEM_BY_TEXT_XPATH = "//*[contains(text(),'%s')]";
     private static final String FIND_ITEM_IN_CART_XPATH = "//*[@class='cart-main-item']//*[contains(text(), '%s')]";
