@@ -13,13 +13,24 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <org.aspectj>1.9.1</org.aspectj>
+        <org.seleniumhq.selenium>3.141.59</org.seleniumhq.selenium>
+        <org.testng>7.0.0</org.testng>
+        <io.qameta.allure>2.10.0</io.qameta.allure>
+        <org.projectlombok>1.18.6</org.projectlombok>
+        <io.github.bonigarcia>4.2.2</io.github.bonigarcia>
+        <org.apache.logging.log4j>2.12.1</org.apache.logging.log4j>
+        <com.fasterxml.jackson.dataformat>2.10.1</com.fasterxml.jackson.dataformat>
+        <allure-testng>2.9.0</allure-testng>
+        <maven-surefire-plugin>3.0.0-M3</maven-surefire-plugin>
+        <maven-compiler-plugin>3.8.0</maven-compiler-plugin>
     </properties>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>${maven-compiler-plugin}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -28,7 +39,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M3</version>
+                <version>${maven-surefire-plugin}</version>
                 <configuration>
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.1/aspectjweaver-1.9.1.jar -Xmx256m
@@ -39,14 +50,14 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.1</version>
+                        <version>${org.aspectj}</version>
                     </dependency>
                 </dependencies>
             </plugin>
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>${io.qameta.allure}</version>
             </plugin>
         </plugins>
     </build>
@@ -54,42 +65,42 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>${org.seleniumhq.selenium}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.0.0</version>
+            <version>${org.testng}</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.6</version>
+            <version>${org.projectlombok}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.9.0</version>
+            <version>${allure-testng}</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.2.2</version>
+            <version>${io.github.bonigarcia}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.12.1</version>
+            <version>${org.apache.logging.log4j}</version>
         </dependency>
         <!--Для считывания yaml-файлов -->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
-            <version>2.10.1</version>
+            <version>${com.fasterxml.jackson.dataformat}</version>
         </dependency>
     </dependencies>
 

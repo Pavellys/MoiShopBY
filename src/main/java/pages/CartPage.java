@@ -21,7 +21,7 @@ public class CartPage extends BasePage{
     @FindBy(xpath = "//*[contains(@class,'add-to-cart')]")
     WebElement cartButton;
     @FindBy(xpath = "//*[contains(@class,'ajs-message')]")
-    WebElement cartPopUp;
+    WebElement popUp;
     @FindBy(id = "checkout")
     WebElement checkoutButtonEndOrder;
     @FindBy(xpath = "//*[@for='shipping_address']")
@@ -48,27 +48,27 @@ public class CartPage extends BasePage{
     }
 
     @Step("Clicking on button 'В корзину'")
-    public CartPage clickOnButtonInCart() {
+    public CartPage clickToButtonInCart() {
         log.info("Clicking on button 'В корзину'");
         cartButton.click();
         return this;
     }
 
     @Step("Waiting until visibility of pop-up massage")
-    public CartPage waitForCartPopUpDisplayed(){
+    public CartPage isPopUpDisplayed(){
         log.info("Waiting until visibility of pop-up massage");
-        wait.until(ExpectedConditions.visibilityOf(cartPopUp)).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(popUp)).isDisplayed();
         return this;
     }
 
     @Step("Checking that product added in cart")
-    public boolean isCheckInCart(String productInCart){
+    public boolean checkInCart(String productInCart){
         log.info("Checking that " + productInCart + " added in cart");
         return driver.findElement(By.xpath(String.format(FIND_ITEM_IN_CART_XPATH, productInCart))).isDisplayed();
     }
 
     @Step("Clicking on button 'Оформить заказ'")
-    public CartPage clickOnCheckoutButton(){
+    public CartPage clickToCheckoutButton(){
         log.info("Clicking on button 'Оформить заказ'");
         checkoutButton.click();
         return this;
@@ -82,14 +82,14 @@ public class CartPage extends BasePage{
     }
 
     @Step("Clicking on button 'Каталог'")
-    public CartPage clickCatalogButton(){
+    public CartPage clickCatalog(){
         log.info("Clicking on button 'Каталог'");
         catalogButton.click();
         return this;
     }
 
     @Step("Entering data in fields 'Имя Фамилия' and 'Номер телефона' ")
-    public CartPage inputUserDataInNameAndPhoneField(UserData userData){
+    public CartPage inputUserData(UserData userData){
         log.info("Entering data in fields 'Имя Фамилия'" + userData.getFullName() + " and 'Номер телефона' "
         + userData.getPhone_mask());
         new Input(driver, "fullname").write(userData.getFullName());
@@ -118,7 +118,7 @@ public class CartPage extends BasePage{
     }
 
     @Step("Entering data in address form 'Доставка по РБ'")
-    public CartPage inputAddressUserDataInAddressField(AddressUser addressUser){
+    public CartPage inputAddressUserData(AddressUser addressUser){
         log.info("Entering data in address form 'Доставка по РБ'");
         new Input(driver, "shipCity").write(addressUser.getShipCity());
         new Input(driver, "shipZipсode").write(addressUser.getShipZipCode());
