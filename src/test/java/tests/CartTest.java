@@ -35,8 +35,8 @@ public class CartTest extends BaseTest {
     public void checkoutDeliveryOnRBTest() {
         cartPage.openPage(BASE_URL)
                 .clickCatalogButton()
-                .clickCatalogSection(ANTISEPTICS_SECTION_CATALOG)
-                .clickOnProduct(ANTISEPTICS_PRODUCT)
+                .clickCatalogSection(GIFT_CERTIFICATE_SECTION_CATALOG)
+                .clickOnProduct(GIFT_CERTIFICATE_PRODUCT)
                 .clickToButtonInCart()
                 .waitForPopUpIsDisplayed()
                 .openPage(CART_URL)

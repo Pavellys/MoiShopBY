@@ -14,9 +14,7 @@ public interface ITestConstants {
     String PAYMENT_AND_DELIVERY = "Оплата и доставка";
     String FEEDBACKS = "Отзывы";
     String CONTACTS = "Контакты";
-    String PROMOTION_PRODUCT = "Биоразлагаемый кондиционер-ополаскиватель для белья райский сад SYNERGETIC, 2,75 л";
+    String PROMOTION_PRODUCT = "Гель для стирки для детского белья, экологический, Molecola, 1,5 л";
     String GIFT_CERTIFICATE_PRODUCT = "Подарочный сертификат розовый \"МОЙ\" на 30 BYN";
     String GIFT_CERTIFICATE_SECTION_CATALOG = "ПОДАРОЧНЫЕ СЕРТИФИКАТЫ";
-    String ANTISEPTICS_SECTION_CATALOG = "Антисептики";
-    String ANTISEPTICS_PRODUCT = "КЛ Гель для гигиены рук /90 мл";
 }

@@ -5,11 +5,10 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import objects.AddressUser;
 import objects.UserData;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.JavaScriptUtils;
 
 @Log4j2
@@ -18,13 +17,13 @@ public class CartPage extends HeadMenuModal{
     WebElement catalogButton;
     @FindBy(id = "btnShowCheckoutForm")
     WebElement checkoutButton;
-    @FindBy(xpath = "//*[contains(@class,'add-to-cart')]")
+    @FindBy(xpath = "//*[@class='btn btn-moi add-to-cart']")
     WebElement cartButton;
     @FindBy(xpath = "//*[contains(@class,'ajs-message')]")
     WebElement popUp;
     @FindBy(id = "checkout")
     WebElement checkoutButtonEndOrder;
-    @FindBy(xpath = "//*[@for='shipping_address']")
+    @FindBy(xpath = "//*[contains(text(), 'Доставка по РБ')]")
     WebElement checkboxDeliveryOnRB;
     private static final String FIND_ITEM_BY_TEXT_XPATH = "//*[contains(text(),'%s')]";
     private static final String FIND_ITEM_IN_CART_XPATH = "//*[@class='cart-main-item']//*[contains(text(), '%s')]";
@@ -43,6 +42,8 @@ public class CartPage extends HeadMenuModal{
     @Step("Clicking on product")
     public CartPage clickOnProduct(String productName){
         log.info("Clicking on product: " + productName);
+        wait.until(ExpectedConditions.
+                elementToBeClickable(By.xpath(String.format(FIND_ITEM_BY_TEXT_XPATH, productName))));
         driver.findElement(By.xpath(String.format(FIND_ITEM_BY_TEXT_XPATH, productName))).click();
         return this;
     }
@@ -50,6 +51,7 @@ public class CartPage extends HeadMenuModal{
     @Step("Clicking on button 'В корзину'")
     public CartPage clickToButtonInCart() {
         log.info("Clicking on button 'В корзину'");
+        wait.until(ExpectedConditions.elementToBeClickable(cartButton));
         cartButton.click();
         return this;
     }
@@ -107,6 +109,7 @@ public class CartPage extends HeadMenuModal{
     @Step("Clicking in checkbox 'Доставка по РБ'")
     public CartPage clickCheckboxDeliveryOnRB(){
         log.info("Clicking in checkbox 'Доставка по РБ'");
+        wait.until(ExpectedConditions.elementToBeClickable(checkboxDeliveryOnRB));
         checkboxDeliveryOnRB.click();
         return this;
     }
