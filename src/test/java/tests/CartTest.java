@@ -27,8 +27,7 @@ public class CartTest extends BaseTest {
                 .waitForPopUpIsDisplayed()
                 .openPage(CART_URL)
                 .clickToCheckoutButton()
-                .inputUserData(testData.getUserData())
-                .scrollToElement();
+                .inputUserData(testData.getUserData());
         Assert.assertTrue(cartPage.isCheckoutButtonDisplayed());
     }
 

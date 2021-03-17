@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HeadMenuModal extends BasePage{
     @FindBy(id = "catalog")
@@ -78,6 +79,7 @@ public class HeadMenuModal extends BasePage{
     }
 
     public boolean isSearchDisplayed(){
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(SEARCH_PANEL_CLASSNAME)));
         return driver.findElement(SEARCH_PANEL_CLASSNAME).isDisplayed();
     }
 }

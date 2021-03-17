@@ -97,15 +97,10 @@ public class CartPage extends HeadMenuModal{
         return this;
     }
 
-    @Step("Scrolling page to button 'Заказать'")
-    public CartPage scrollToElement(){
-        JavaScriptUtils.scrollToElement(checkoutButtonEndOrder,driver);
-        return this;
-    }
-
     @Step("Checking that button 'Заказать' in end order is displayed")
     public boolean isCheckoutButtonDisplayed(){
         log.info("Checking that button 'Заказать' in end order is displayed");
+        JavaScriptUtils.scrollToElement(checkoutButtonEndOrder,driver);
         return checkoutButtonEndOrder.isDisplayed();
     }
 
