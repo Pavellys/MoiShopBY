@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.JavaScriptUtils;
 
 @Log4j2
-public class CartPage extends BasePage{
+public class CartPage extends HeadMenuModal{
     @FindBy(id = "catalog")
     WebElement catalogButton;
     @FindBy(id = "btnShowCheckoutForm")
@@ -55,14 +55,14 @@ public class CartPage extends BasePage{
     }
 
     @Step("Waiting until visibility of pop-up massage")
-    public CartPage isPopUpDisplayed(){
+    public CartPage waitForPopUpIsDisplayed(){
         log.info("Waiting until visibility of pop-up massage");
         wait.until(ExpectedConditions.visibilityOf(popUp)).isDisplayed();
         return this;
     }
 
     @Step("Checking that product added in cart")
-    public boolean checkInCart(String productInCart){
+    public boolean checkProductAddedToCart(String productInCart){
         log.info("Checking that " + productInCart + " added in cart");
         return driver.findElement(By.xpath(String.format(FIND_ITEM_IN_CART_XPATH, productInCart))).isDisplayed();
     }
@@ -82,7 +82,7 @@ public class CartPage extends BasePage{
     }
 
     @Step("Clicking on button 'Каталог'")
-    public CartPage clickCatalog(){
+    public CartPage clickCatalogButton(){
         log.info("Clicking on button 'Каталог'");
         catalogButton.click();
         return this;
@@ -99,8 +99,7 @@ public class CartPage extends BasePage{
 
     @Step("Scrolling page to button 'Заказать'")
     public CartPage scrollToElement(){
-        log.info("Scrolling page to button 'Заказать'");
-        JavaScriptUtils.executeJavaScript("arguments[0].scrollIntoView(true);", checkoutButtonEndOrder, driver);
+        JavaScriptUtils.scrollToElement(checkoutButtonEndOrder,driver);
         return this;
     }
 

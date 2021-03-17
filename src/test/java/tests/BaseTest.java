@@ -3,23 +3,20 @@ package tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 import pages.CartPage;
 import pages.HeadMenuModal;
 import tests_constants.ITestConstants;
-import tests_data.TestData;
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
-public class BaseTest extends TestData implements ITestConstants {
+public class BaseTest implements ITestConstants {
 
     WebDriver driver;
     HeadMenuModal headMenuModal;
     CartPage cartPage;
 
-    @BeforeMethod
+    @BeforeMethod(groups = "init")
     public void initTest(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -28,7 +25,7 @@ public class BaseTest extends TestData implements ITestConstants {
         initPage();
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true, groups = "init")
     public void endTest(){
         driver.quit();
     }

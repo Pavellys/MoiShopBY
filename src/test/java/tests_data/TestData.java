@@ -5,7 +5,7 @@ import objects.UserData;
 
 
 public class TestData {
-    UserData userData = new UserData("Pavel", "3333856769");
+    static UserData userData = new UserData("Pavel", "3333856769");
 
     public UserData getUserData() {
         return userData;
