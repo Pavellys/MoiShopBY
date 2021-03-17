@@ -21,7 +21,7 @@ public class HeadMenuModal extends BasePage{
     @FindBy(className = "go-to-cart-link")
     WebElement cartButton;
     private static final String MENU_SECTION_XPATH = "//*[contains(text(),'%s')]";
-    private static final By SEARCH_PANEL_CLASSNAME = By.className("multi-input");
+    private static final By SEARCH_PANEL_CLASSNAME = By.className("multi-form");
     private static final By BRANDS_LIST_ID = By.id("ulBrands");
     private static final By CATALOG_LIST_ID = By.id("ctgr");
     private static final By MY_ACCOUNT_XPATH = By.xpath("//*[@alt='User']");
