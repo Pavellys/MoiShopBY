@@ -4,6 +4,7 @@
     <test name="test 1">
         <groups>
             <run>
+                <include name="init"/>
                 <include name="smoke"/>
                 <include name="critical_pass"/>
             </run>
@@ -15,6 +16,7 @@
     <test name="test 2">
         <groups>
         <run>
+            <include name="init"/>
             <include name="smoke"/>
             <include name="critical_pass"/>
         </run>

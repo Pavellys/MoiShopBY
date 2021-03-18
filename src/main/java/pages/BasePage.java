@@ -15,7 +15,7 @@ abstract class BasePage implements Constants  {
     BasePage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        wait = new WebDriverWait(driver, 20);
+        wait = new WebDriverWait(driver, 30);
     }
 
 }
